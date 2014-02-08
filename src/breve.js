@@ -1,6 +1,38 @@
-define([], function ($) {
+
+/**
+ * Breve.js - A McGyver toolbox of small bits to speed up vanilla js development / prototyping
+ *
+ * Features: mixing and inheritance, custom events, uuid, debounce and throttle, and, as a pure flight of
+ * fancy, a polyfill for requestAnimationFrame. It's intentionally basic and conceived for convenience and speed,
+ * not abundance of features.
+ *
+ * @author barbara [at] kitsch-en [net]
+ */
+
+(function(global, factory) {
 
     'use strict';
+
+    if (typeof exports !== 'undefined') {
+
+        // CommonJS
+        exports.Breve = factory();
+
+    } else if (typeof define === 'function' && define.amd) {
+
+        // Require.js, Almond.js
+        define('breve-js', [], function() {
+            global.Breve = factory();
+            return global.Breve;
+        });
+
+    } else {
+
+        global.Breve = factory();
+
+    }
+
+}(this, function() {
 
     var BR =  {};
 
@@ -244,4 +276,4 @@ define([], function ($) {
 
     return BR;
 
-});
+}));
