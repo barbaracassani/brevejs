@@ -95,7 +95,8 @@
      * @param target
      */
     BR.makeObservable = function(target) {
-        return BR.mixin(target, this, 'publish', 'subscribe', 'unsubscribe', 'unsubscribeAll');
+        BR.mixin(target, this, 'publish', 'subscribe', 'unsubscribe', 'unsubscribeAll');
+        return target;
     };
 
     /**
