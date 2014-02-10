@@ -1,0 +1,6 @@
+{
+    "name": "breve-js",
+    "version": "0.1.0",
+    "main": "./src/breve.js",
+    "devDependencies": {}
+}
