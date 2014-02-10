@@ -1,4 +1,3 @@
-
 /**
  * Breve.js - A McGyver toolbox of small bits to speed up vanilla js development / prototyping
  *
@@ -24,8 +23,7 @@
 
         // Require.js, Almond.js
         define('breve-js', [], function() {
-            global.Breve = factory();
-            return global.Breve;
+            return factory();
         });
 
     } else {
