@@ -99,16 +99,36 @@
         return target;
     };
 
+    //  helper function to create random hex numbers ( of length = 8 )
+    var produceRandomHex = function() {
+        var randomHex = (Math.random()).toString(16).substring(2,10);
+
+        if(randomHex.length < 8){
+            return randomHex + (Math.random()).toString(16).substring(2,3);
+        } else {
+            return randomHex;
+        }
+    };
+
     /**
      * Unique id
-     * @param seed
+     * http://en.wikipedia.org/wiki/Universally_unique_identifier#Definition
+     *
      * @returns {string}
      */
-    BR.uuid = function(seed) {
-        var s = seed || 's';
-        return s +
-            (Math.random() * 1000).toString().substr(0,4) +
-            (new Date().valueOf().toString().substr(8));
+    BR.uuid = function() {
+        //  create the random sequences
+        var guid = 
+            produceRandomHex() + '-' +
+            produceRandomHex() +
+            produceRandomHex() +
+            produceRandomHex();
+
+        //  return the UUID with hyphens added
+        return guid.substr(0,13) + '-' +
+               guid.substr(12,4) + '-' +
+               guid.substr(16,4) + '-' +
+               guid.substr(20,12);
     };
 
     /**
