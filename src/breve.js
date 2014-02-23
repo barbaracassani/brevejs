@@ -99,8 +99,10 @@
         return target;
     };
 
+    //  helper function to create random hex numbers ( of length = 8 )
     var produceRandomHex = function() {
         var randomHex = (Math.random()).toString(16).substring(2,10);
+
         if(randomHex.length < 8){
             return randomHex + (Math.random()).toString(16).substring(2,3);
         } else {
@@ -112,7 +114,6 @@
      * Unique id
      * http://en.wikipedia.org/wiki/Universally_unique_identifier#Definition
      *
-     * @param seed
      * @returns {string}
      */
     BR.uuid = function() {
@@ -124,7 +125,7 @@
             produceRandomHex();
 
         //  return the UUID with hyphens added
-        return guid.substr(0,12) + '-' +
+        return guid.substr(0,13) + '-' +
                guid.substr(12,4) + '-' +
                guid.substr(16,4) + '-' +
                guid.substr(20,12);
