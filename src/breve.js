@@ -101,14 +101,24 @@
 
     /**
      * Unique id
+     * http://en.wikipedia.org/wiki/Universally_unique_identifier#Definition
+     *
      * @param seed
      * @returns {string}
      */
-    BR.uuid = function(seed) {
-        var s = seed || 's';
-        return s +
-            (Math.random() * 1000).toString().substr(0,4) +
-            (new Date().valueOf().toString().substr(8));
+    BR.uuid = function() {
+        //  create the random sequences
+        var guid = 
+            (Math.random()).toString(16).substring(2,10) + '-' +
+            (Math.random()).toString(16).substring(2,10) +
+            (Math.random()).toString(16).substring(2,10) +
+            (Math.random()).toString(16).substring(2,10);
+
+        //  return the UUID with hyphens added
+        return guid.substr(0,12) + '-' +
+               guid.substr(12,4) + '-' +
+               guid.substr(16,4) + '-' +
+               guid.substr(20,12);
     };
 
     /**
