@@ -99,6 +99,15 @@
         return target;
     };
 
+    var produceRandomHex = function() {
+        var randomHex = (Math.random()).toString(16).substring(2,10);
+        if(randomHex.length < 8){
+            return randomHex + (Math.random()).toString(16).substring(2,3);
+        } else {
+            return randomHex;
+        }
+    }
+
     /**
      * Unique id
      * http://en.wikipedia.org/wiki/Universally_unique_identifier#Definition
@@ -109,10 +118,10 @@
     BR.uuid = function() {
         //  create the random sequences
         var guid = 
-            (Math.random()).toString(16).substring(2,10) + '-' +
-            (Math.random()).toString(16).substring(2,10) +
-            (Math.random()).toString(16).substring(2,10) +
-            (Math.random()).toString(16).substring(2,10);
+            produceRandomHex() + '-' +
+            produceRandomHex() +
+            produceRandomHex() +
+            produceRandomHex();
 
         //  return the UUID with hyphens added
         return guid.substr(0,12) + '-' +
