@@ -108,7 +108,7 @@
         } else {
             return randomHex;
         }
-    }
+    };
 
     /**
      * Unique id
